@@ -1,0 +1,11 @@
+<!doctype html><html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>💌 Taklifnoma</title><meta name="description" content="Sizni taklif qilamiz — ochish uchun bosing">
+<meta property="og:title" content="💌 Taklifnoma"><meta property="og:description" content="Sizni taklif qilamiz — ochish uchun bosing"><meta name="theme-color" content="#171717">
+<style>html,body{margin:0;min-height:100%;background:#171717;color:#eee;font:15px Georgia,serif}body{display:grid;place-items:center;min-height:100vh;text-align:center;padding:24px}
+.l{font-size:42px;animation:p 1.2s ease-in-out infinite}@keyframes p{50%{transform:scale(1.12);opacity:.6}}small{display:block;margin-top:14px;opacity:.7;font:13px Arial}</style></head>
+<body><div><div class="l">💌</div><small id="m">…</small></div><script>
+const API="https://zupzvekirthvknydjjga.supabase.co/functions/v1/greenbooks";
+const k=((new URLSearchParams(location.search).get("k"))||location.hash.slice(1)).toLowerCase().replace(/[^a-z0-9]/g,"");
+function fail(){document.getElementById("m").textContent="Taklifnoma topilmadi · Приглашение не найдено · Invitation not found"}
+if(!k)fail();else fetch(API+"/inv/"+k).then(r=>r.ok?r.json():Promise.reject(r.status)).then(j=>{if(!j.html)return fail();document.open();document.write(j.html);document.close()}).catch(fail);
+</script></body></html>
